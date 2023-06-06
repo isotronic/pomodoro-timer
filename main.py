@@ -1,5 +1,6 @@
-import tkinter
+from tkinter import *
 import math
+from playsound import playsound
 
 # ---------------------------- CONSTANTS / GLOBAL VARS ------------------------------- #
 PINK = "#e2979c"
@@ -65,26 +66,26 @@ def count_down(count):
 
 
 # ---------------------------- UI SETUP ------------------------------- #
-window = tkinter.Tk()
+window = Tk()
 window.title("Pomodoro")
 window.config(pady=100, padx=100, bg=YELLOW)
 
-header_label = tkinter.Label(text="Timer", font=(FONT_NAME, 30, "bold"), fg=GREEN, bg=YELLOW)
+header_label = Label(text="Timer", font=(FONT_NAME, 30, "bold"), fg=GREEN, bg=YELLOW)
 header_label.grid(column=1, row=0)
 
-check_marks = tkinter.Label(font=(FONT_NAME, 15), fg=GREEN, bg=YELLOW)
+check_marks = Label(font=(FONT_NAME, 15), fg=GREEN, bg=YELLOW)
 check_marks.grid(column=1, row=3)
 
-canvas = tkinter.Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
-tomato_img = tkinter.PhotoImage(file="tomato.png")
+canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
+tomato_img = PhotoImage(file="tomato.png")
 canvas.create_image(100, 112, image=tomato_img)
 timer_text = canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 25, "bold"))
 canvas.grid(column=1, row=1)
 
-start_button = tkinter.Button(text="Start", command=start_timer)
+start_button = Button(text="Start", command=start_timer)
 start_button.grid(column=0, row=2)
 
-reset_button = tkinter.Button(text="Reset", command=reset_timer)
+reset_button = Button(text="Reset", command=reset_timer)
 reset_button.grid(column=2, row=2)
 
 window.mainloop()
